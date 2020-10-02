@@ -8,6 +8,7 @@
     "start": "next start"
   },
   "dependencies": {
+    "dayjs": "^1.9.1",
     "gray-matter": "^4.0.2",
     "next": "9.5.3",
     "react": "16.13.1",
