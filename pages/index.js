@@ -7,6 +7,17 @@ dayjs.extend(utc)
 
 
 export default function Home({ blogPosts }) {
+  
+  const stripTags = (text) => {
+
+    text.replace('<', '');
+    text.replace('/', '');
+    text.replace('p', '');
+    text.replace('>', '');
+
+    return text;
+
+  }
   return (
     <Layout home>
       <Head>
@@ -24,6 +35,9 @@ export default function Home({ blogPosts }) {
               <strong>{post.title.rendered}</strong>
               <br />
               <small>{dayjs(post.date).utcOffset(-12).format('dddd, MMMM D, YYYY h:mm A')}</small>
+              <p>{post.excerpt.rendered}</p>
+              {/* escape the html somehow */}
+              <hr/>
             </li>
           ))}
         </ul>
