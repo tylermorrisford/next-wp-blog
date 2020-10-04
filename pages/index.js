@@ -31,12 +31,11 @@ export default function Home({ blogPosts }) {
         {console.log('this is blogPosts array', blogPosts)}
         <ul className={utilStyles.list}>
           {blogPosts.map(post => (
-            <li className={utilStyles.listItem} key={post.id}>
-              <strong>{post.title.rendered}</strong>
+            <li className={utilStyles.listItem} key={post.node.id}>
+              <strong>{post.node.title}</strong>
               <br />
-              <small>{dayjs(post.date).utcOffset(-12).format('dddd, MMMM D, YYYY h:mm A')}</small>
-              <p>{post.excerpt.rendered}</p>
-              {/* escape the html somehow */}
+              <small>{dayjs(post.node.date).utcOffset(-12).format('dddd, MMMM D, YYYY h:mm A')}</small>
+              <p>{post.node.content.replace(/<\/?p[^>]*>/g, "")}</p>
               <hr/>
             </li>
           ))}
@@ -47,10 +46,28 @@ export default function Home({ blogPosts }) {
 }
 
 export async function getStaticProps() {
-  const blogAPI = `http://www.tylermorrisford.com/wp-json/wp/v2/posts?categories=4`;
-  const res = await fetch(blogAPI)
-  const blogPosts = await res.json()
-  console.log(blogPosts);
+  const blogAPI = `http://www.tylermorrisford.com/graphql`;
+  const query = `query GET_POSTS {
+    posts {
+      edges {
+        node {
+          id
+          title
+          content
+          date
+        }
+      }
+    }
+  }`
+  const res = await fetch(blogAPI, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    body: JSON.stringify({query}),
+  })
+  const blogData = await res.json();
+  const blogPosts = blogData.data.posts.edges
   return {
     props: {
       blogPosts
