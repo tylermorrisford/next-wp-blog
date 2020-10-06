@@ -8,17 +8,6 @@ dayjs.extend(utc)
 
 export default function Home({ blogPosts }) {
   
-  const stripTags = (text) => {
-
-    text.replace('<', '');
-    text.replace('/', '');
-    text.replace('p', '');
-    text.replace('>', '');
-
-    return text;
-
-  }
-
   return (
     <Layout home>
       <Head>
