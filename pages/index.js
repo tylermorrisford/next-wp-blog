@@ -19,10 +19,6 @@ export default function Home({ blogPosts }) {
 
   }
 
-  const renderPostContent = (post) => {
-    return {__html: `${post.node.content}`};
-  }
-
   return (
     <Layout home>
       <Head>
@@ -40,7 +36,7 @@ export default function Home({ blogPosts }) {
               <strong>{post.node.title}</strong>
               <br />
               <small>{dayjs(post.node.date).utcOffset(-12).format('dddd, MMMM D, YYYY h:mm A')}</small>
-              <p dangerouslySetInnerHTML={renderPostContent(post)}></p>
+              <div dangerouslySetInnerHTML={{__html: post.node.content}}></div>
               <hr/>
             </li>
           ))}
