@@ -34,9 +34,9 @@ export default function Home({ blogPosts }) {
         <span>In case you don't care about one of these topics, filter the posts with these links:</span>
         <div style={{display: 'flex', alignItems: 'center'}}>
         <ul style={ulStyle}>
-          <li style={liStyle}><Link href="/devPosts">developer stuff</Link></li>
-          <li style={liStyle}><Link href="/parentingPosts">parenting stuff</Link></li>
-          <li style={liStyle}><Link href="/superRandom">super random stuff</Link></li>
+          <li className='li'><Link href="/devPosts">developer stuff</Link></li>
+          <li className='li'><Link href="/parentingPosts">parenting stuff</Link></li>
+          <li className='li'><Link href="/superRandom">super random stuff</Link></li>
         </ul>
         </div>
       </section>
