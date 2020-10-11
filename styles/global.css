@@ -13,7 +13,7 @@ body {
 }
 
 a {
-  color: #0070f3;
+  color: darkred;
   text-decoration: none;
 }
 
@@ -21,7 +21,26 @@ a:hover {
   text-decoration: underline;
 }
 
+
 img {
   max-width: 100%;
   display: block;
+}
+
+footer {
+  width: '100%'; 
+  text-align: center;
+}
+
+.hr {
+  width: 20%;
+  margin: 0 auto;
+}
+
+.li {
+  float: left;
+  height: 20px;
+  margin: 0 10px 0;
+  text-align: center;
+  /* clear: bottom */
 }

@@ -3,7 +3,7 @@ import styles from './layout.module.css'
 import utilStyles from '../styles/utils.module.css'
 import Link from 'next/link'
 
-const name = 'Hellooo'
+const name = `teef's blog`
 export const siteTitle = 'Next.js Using WP as a headless CMS'
 
 export default function Layout({ children, home }) {
