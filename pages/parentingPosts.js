@@ -59,6 +59,7 @@ export async function getStaticProps() {
     console.log('this is blogdata', JSON.stringify(blogData));
     const blogPosts = blogData.data.posts.nodes
     return {
+      revalidate: 30,
       props: {
         blogPosts
       }
