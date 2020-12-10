@@ -84,6 +84,7 @@ export async function getStaticProps() {
   const blogData = await res.json();
   const blogPosts = blogData.data.posts.edges
   return {
+    revalidate: 30,
     props: {
       blogPosts
     }
