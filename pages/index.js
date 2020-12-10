@@ -30,7 +30,6 @@ export default function Home({ blogPosts }) {
       </Head>
       <section className={utilStyles.headingMd}>
         <p>I'm Tyler <small>(39, he/him, loves hockey and delicious beers)</small>, and this is the jamstack(-ish) version of an old wordpress blog. I was looking for a way to only pull newer posts from said blog, and with GraphQL it's super, super easy.</p>
-        <p>Much like checking out your old myspace page, checking back in with an old blog can be uniquely cringe-inducing.</p>
         <span>In case you don't care about one of these topics, filter the posts with these links:</span>
         <div style={{display: 'flex', alignItems: 'center'}}>
         <ul style={ulStyle}>
